@@ -141,6 +141,6 @@ if __name__ == '__main__':
             except:
                 webbrowser.open('www.google.com')
         
-        speak('Next Command! Sir!')
+        speak('Next Command!')
         
 
