@@ -78,10 +78,14 @@ if __name__ == '__main__':
         elif "what\'s up" in query or 'how are you' in query:
             stMsgs = ['Just doing my thing!', 'I am fine!', 'Nice!', 'I am nice and full of energy']
             speak(random.choice(stMsgs))
+        elif 'open github' in query:
+            webbrowser.open('https://github.com')
+            
 
         elif 'email' in query:
             speak('Who is the recipient? ')
             recipient = myCommand()
+       
 
             if 'me' in recipient:
                 try:
