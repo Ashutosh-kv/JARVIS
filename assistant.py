@@ -14,7 +14,7 @@ engine = pyttsx3.init('sapi5')
 client = wolframalpha.Client('Your_App_ID')
 
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[len(voices)-1].id)
+engine.setProperty('voice', voices[len(voices)-0].id) #Jarvis
 
 def speak(audio):
     print('Computer: ' + audio)
@@ -24,17 +24,17 @@ def speak(audio):
 def greetMe():
     currentH = int(datetime.datetime.now().hour)
     if currentH >= 0 and currentH < 12:
-        speak('Good Morning!')
+        speak('Good Morning Sir!')
 
     if currentH >= 12 and currentH < 18:
-        speak('Good Afternoon!')
+        speak('Good Afternoon Sir!')
 
     if currentH >= 18 and currentH !=0:
-        speak('Good Evening!')
+        speak('Good Evening Sir!')
 
 greetMe()
 
-speak('Hello Sir, I am your digital assistant LARVIS the Lady Jarvis!')
+speak('Hello Sir, I am your digital assistant JARVIS!')
 speak('How may I help you?')
 
 
@@ -64,16 +64,24 @@ if __name__ == '__main__':
         query = query.lower()
         
         if 'open youtube' in query:
-            speak('okay')
+            speak('okay Sir!')
             webbrowser.open('www.youtube.com')
 
         elif 'open google' in query:
-            speak('okay')
+            speak('okay Sir!')
             webbrowser.open('www.google.co.in')
 
         elif 'open gmail' in query:
-            speak('okay')
+            speak('okay Sir!')
             webbrowser.open('www.gmail.com')
+            
+        elif 'open chrome' in query:
+            Search_engine = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+            os.startfile(Search_engine)
+            
+        elif 'the time' in query:
+            strTime = datetime.datetime.now().strftime('%H,%M.%S')
+            speak('Sir,The time is ',strTime)
 
         elif "what\'s up" in query or 'how are you' in query:
             stMsgs = ['Just doing my thing!', 'I am fine!', 'Nice!', 'I am nice and full of energy']
