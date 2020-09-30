@@ -120,6 +120,8 @@ if __name__ == '__main__':
                   
             speak('Okay, here is your music! Enjoy!')
             
+        elif 'what' and 'my name' in query:
+            speak('Your name is' + 'yourname')
 
         else:
             query = query
