@@ -63,7 +63,17 @@ if __name__ == '__main__':
         query = myCommand();
         query = query.lower()
         
-        if 'open youtube' in query:
+        if 'voice' in query:
+			try:
+				if 'female' in text:
+					engine.setProperty('voice', voices[0].id)
+				else:
+					engine.setProperty('voice', voices[1].id)
+				speak("Hello Sir, I have changed my voice. How is it?")
+			except Exception as e:
+				pass
+        
+        elif 'open youtube' in query:
             speak('okay')
             webbrowser.open('www.youtube.com')
 
