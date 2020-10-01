@@ -147,7 +147,6 @@ if __name__ == '__main__':
                 speak(f'Main: {main}\nDescription: {description}\nTemprature: {acttemp}°C\nFeels Like: {actfel}°C\nHumidity: {Humidity}%')
 
             except Exception as e:
-                print(e)
                 speak('Sorry sir there was an issue')
             
 
