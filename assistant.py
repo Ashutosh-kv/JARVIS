@@ -8,6 +8,7 @@ import datetime
 import wolframalpha
 import os
 import sys
+import pyjokes
 
 engine = pyttsx3.init('sapi5')
 
@@ -54,6 +55,17 @@ def myCommand():
         query = str(input('Command: '))
 
     return query
+
+def joke():
+    speak(pyjokes.get_jokes())
+
+def cpu():
+    usage=str(psutil.cpu_percent())
+    speak("CPU is at"+usage)
+
+    battery = psutil.sensors_battery()
+    speak("battery is at")
+    speak(battery.percent)
         
 
 if __name__ == '__main__':
@@ -104,6 +116,9 @@ if __name__ == '__main__':
             speak('okay')
             speak('Bye Sir, have a good day.')
             sys.exit()
+            
+        elif 'joke' in query:
+            joke()
            
         elif 'hello' in query:
             speak('Hello Sir')
@@ -119,6 +134,18 @@ if __name__ == '__main__':
             os.system(random_music)
                   
             speak('Okay, here is your music! Enjoy!')
+            
+        elif 'date' in query:
+            date_()
+            
+            
+        elif 'cpu' in query:
+            cpu()
+            
+            
+        elif 'go offline' in query:
+            speak("going offline sir")
+            quit()
             
 
         else:
