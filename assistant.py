@@ -8,6 +8,7 @@ import datetime
 import wolframalpha
 import os
 import sys
+import pyjokes
 
 engine = pyttsx3.init('sapi5')
 
@@ -74,6 +75,30 @@ if __name__ == '__main__':
         elif 'open gmail' in query:
             speak('okay')
             webbrowser.open('www.gmail.com')
+        
+        elif 'open instagram' in query:
+            webbrowser.get('chrome').open("instagram.com")
+
+        elif 'open stackoverflow' in query:
+            webbrowser.get('chrome').open("stackoverflow.com")
+
+        elif 'open gmail' in query:
+            webbrowser.get('chrome').open("gmail.com")
+
+        elif 'open facebook' in query:
+            webbrowser.get('chrome').open("facebook.com") 
+        
+        elif 'open gaana' in query:
+            webbrowser.get('chrome').open("gaana.com") 
+        
+        elif 'open whatsapp web' in query:
+            webbrowser.get('chrome').open("web.whatsapp.com") 
+        
+        elif 'open flipkart' in query:
+            webbrowser.get('chrome').open("flipkart.com") 
+       
+        elif 'open amazon' in query:
+            webbrowser.get('chrome').open("amazon.in")
 
         elif "what\'s up" in query or 'how are you' in query:
             stMsgs = ['Just doing my thing!', 'I am fine!', 'Nice!', 'I am nice and full of energy']
@@ -97,10 +122,10 @@ if __name__ == '__main__':
                     speak('Email sent!')
 
                 except:
-                    speak('Sorry Sir! I am unable to send your message at this moment!')
+                    speak('Sorry Sir! I am unable to send your message at the moment!')
 
 
-        elif 'nothing' in query or 'abort' in query or 'stop' in query:
+        elif 'nothing' in query or 'abort' in query or 'stop' or 'exit' in query:
             speak('okay')
             speak('Bye Sir, have a good day.')
             sys.exit()
@@ -119,8 +144,24 @@ if __name__ == '__main__':
             os.system(random_music)
                   
             speak('Okay, here is your music! Enjoy!')
-            
+         
+        elif 'the time' in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")    
+            speak(f"Sir, the time is {strTime}")
+        
+        elif "what's your name" in query or "What is your name" in query: 
+            speak("My friends call me Larvis") 
+            print("My friends call me Larvis.") 
 
+        elif "who made you" in query or "who created you" in query:  
+            speak("I have been created by Ashutosh") 
+              
+        elif 'joke' in query: 
+            speak(pyjokes.get_joke())
+
+        elif 'shutdown system' in query: 
+                speak("Hold On a Sec ! Your system is on its way to shut down") 
+                subprocess.call('shutdown / p /f') 
         else:
             query = query
             speak('Searching...')
