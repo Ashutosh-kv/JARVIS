@@ -120,6 +120,13 @@ if __name__ == '__main__':
                   
             speak('Okay, here is your music! Enjoy!')
             
+        elif "logout" in query:
+            os.system("shutdown -l")
+        elif "shutdown" in query:
+            os.system("shutdown /s /t 1")
+        elif "restart" in query:
+            os.system("shutdown /r /t 1")
+            
 
         else:
             query = query
