@@ -1,0 +1,7 @@
+pip intstall pyttsx3
+pip install speechRecognition
+pip install wikipedia
+pip install psutil
+pip install pyjokes
+pip install pyautogui
+pip install wolframalpha
