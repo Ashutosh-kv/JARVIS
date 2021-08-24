@@ -1,0 +1,51 @@
+import speech_recognition as sr
+import pyttsx3
+import pywhatkit
+import datetime
+import webbrowser
+
+
+listener = sr.Recognizer()
+engine = pyttsx3.init()
+
+def talk(text):
+    engine.say(text)
+    engine.runAndWait()
+
+
+def take_command():
+    try:
+       with sr.Microphone() as source:
+          print('listening...')
+          voice = listener.listen(source)
+          command = listener.recognize_google(voice)
+          command = command.lower()
+          if 'jarvis' in command:
+                command = command('replace', '')
+                print(command)
+    except:
+     pass
+     return command
+
+def run_jarvis():
+    command = take_command()
+    print(command)
+    if 'play' in command:
+        song = command .replace('play', '')
+        talk(song + 'playing' )
+        pywhatkit.playonyt(song)
+    elif 'open youtube' in command:
+        talk("Here you go to Youtube\n")
+        webbrowser.open("youtube.com")
+    elif 'how to' in command:
+        howto = command .replace('play', '')
+        talk('playing' + howto)
+        pywhatkit.playonyt(howto)
+    elif 'time' in command:
+        time = datetime.datetime.now().strftime('%I:%M %p')
+        print(time)
+        talk('Current time is ' + time)
+        talk('Please say the command again...')
+
+while True:
+    run_jarvis()
