@@ -6,8 +6,10 @@ import speech_recognition as sr
 import wikipedia
 import datetime
 import wolframalpha
+import datetime
 import os
 import sys
+import pywhatkit
 
 engine = pyttsx3.init('sapi5')
 
@@ -50,8 +52,8 @@ def myCommand():
         print('User: ' + query + '\n')
         
     except sr.UnknownValueError:
-        speak('Sorry sir! I didn\'t get that! Try typing the command!')
-        query = str(input('Command: '))
+        print("Say that again please...")  
+        return "None"
 
     return query
         
@@ -60,7 +62,7 @@ if __name__ == '__main__':
 
     while True:
     
-        query = myCommand();
+        query = myCommand()
         query = query.lower()
         
         if 'open youtube' in query:
@@ -98,8 +100,12 @@ if __name__ == '__main__':
 
                 except:
                     speak('Sorry Sir! I am unable to send your message at this moment!')
-
-
+        elif 'time' in query:
+            if 'what' in query:
+                time = datetime.datetime.now().strftime('%I:%M %p')
+                speak(time)
+                
+                
         elif 'nothing' in query or 'abort' in query or 'stop' in query:
             speak('okay')
             speak('Bye Sir, have a good day.')
@@ -120,7 +126,11 @@ if __name__ == '__main__':
                   
             speak('Okay, here is your music! Enjoy!')
             
-
+        elif 'play' in query:
+            query = query.replace('play',"")
+            pywhatkit.playonyt(query)
+            
+            
         else:
             query = query
             speak('Searching...')
