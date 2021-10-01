@@ -142,5 +142,17 @@ if __name__ == '__main__':
                 webbrowser.open('www.google.com')
         
         speak('Next Command! Sir!')
+        elif 'email to' in query:
+            try:
+                speak("Sir, give me your message")
+                print('Give message.......')
+                content = takeCommand()
+                to = "adarshdubey0803@gmail.com"
+                sendEmail(to, content)
+                print('Sending mail........')
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Sorry master Anuj . I am not able to send this email")
         
 
