@@ -74,6 +74,14 @@ if __name__ == '__main__':
         elif 'open gmail' in query:
             speak('okay')
             webbrowser.open('www.gmail.com')
+            
+       elif 'wikipedia' in query:
+            speak('Searching Wikipedia...')
+            query = query.replace("wikipedia", "")
+            results = wikipedia.summary(query, sentences=2)
+            speak("According to Wikipedia")
+            print(results)
+            speak(results)
 
         elif "what\'s up" in query or 'how are you' in query:
             stMsgs = ['Just doing my thing!', 'I am fine!', 'Nice!', 'I am nice and full of energy']
