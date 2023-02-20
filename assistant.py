@@ -8,7 +8,7 @@ import datetime
 import wolframalpha
 import os
 import sys
-
+import pyjokes
 engine = pyttsx3.init('sapi5')
 
 client = wolframalpha.Client('Your_App_ID')
@@ -119,8 +119,12 @@ if __name__ == '__main__':
             os.system(random_music)
                   
             speak('Okay, here is your music! Enjoy!')
+        
+        elif 'joke' in query:
+            joke = pyjokes.get_joke(language="en", category="neutral")
+            print(joke)
+            speak(joke)
             
-
         else:
             query = query
             speak('Searching...')
